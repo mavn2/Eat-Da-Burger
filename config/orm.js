@@ -1,0 +1,45 @@
+//Dependencies
+const connection = require('./connection');
+
+//Cb refers to callback
+const orm = {
+  selectAll: (req, res) => {
+    //Select all burgers from table, return data or return 404 (db must not exist)/end connection
+    const queryString = 'SELECT id, burger_name, devoured FROM burgers';
+
+    connection.query(queryString, (err, data) => {
+      if (err) {
+        return res.status(404).end();
+      };
+      res.json(data);
+    });
+  },
+
+  insertOne: (req, res) => {
+    //Get burger name from request body, insert burger or return server error/end connection
+    const queryString = 'INSERT INTO burgers (burger_name) VALUES (?)';
+
+    connection.query(queryString, [req.body.bName], (err, data) => {
+      if (err) {
+        return res.status(500).end();
+      };
+      //Parse to display added burger
+      res.json(data)
+    });
+  },
+
+  updateOne: (req, res) => {
+    //Change the devoured status of selected burger to true, or return server error/end connection
+    const queryString = 'UPDATE burgers SET devoured = 1 WHERE id = ?';
+
+    connection.query(queryString, [req.body.id], (err, data) => {
+      if (err) {
+        return res.status(500).end();
+      };
+      //Parse to display devoured burger
+      res.json(data)
+    });
+  }
+};
+
+module.exports = orm
