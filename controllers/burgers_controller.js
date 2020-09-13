@@ -26,7 +26,7 @@ router.post('/api/burg', (req, res) => {
   });
 });
 
-router.update('/api/burg/:id', (req, res) => {
+router.put('/api/burg/:id', (req, res) => {
   //Passes id of burger to update
   burger.devour(req.params.id, data => {
         //log response for testing
