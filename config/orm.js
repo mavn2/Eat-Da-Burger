@@ -45,4 +45,4 @@ const orm = {
   }
 };
 
-module.exports = orm;
+module.export = orm;

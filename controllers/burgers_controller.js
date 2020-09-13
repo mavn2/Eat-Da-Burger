@@ -34,5 +34,5 @@ router.update('/api/burg/:id', (req, res) => {
   });
 });
 
-module.exports = router
+module.export = router
 
