@@ -15,11 +15,11 @@ const orm = {
     });
   },
 
-  insertOne: (burgName, cb) => {
+  insertOne: (value, cb) => {
     //Insert burger or return server error/end connection
-    const queryString = 'INSERT INTO burgers (burger_name) VALUES (?)';
+    const queryString = `INSERT INTO burgers (burger_name) VALUES ${value}`;
 
-    connection.query(queryString, [burgName], (err, data) => {
+    connection.query(queryString, (err, data) => {
       if (err) {
         return res.status(500).end();
       };
@@ -28,11 +28,11 @@ const orm = {
     });
   },
 
-  updateOne: (burgId, cb) => {
+  updateOne: (condition, cb) => {
     //Change selected burger's devoured to true, or return server error/end connection
-    const queryString = 'UPDATE burgers SET devoured = 1 WHERE id = ?';
+    const queryString = `UPDATE burgers SET devoured = 1 WHERE id = ${condition}`;
 
-    connection.query(queryString, [burgId], (err, data) => {
+    connection.query(queryString, (err, data) => {
       if (err) {
         return res.status(500).end();
       };
