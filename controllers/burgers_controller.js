@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       burgers: data
     };
     //Use hbs to create HTML page with data, send as response
-    res.render(burgListObject)
+    res.render('index', burgListObject)
   });
 });
 
