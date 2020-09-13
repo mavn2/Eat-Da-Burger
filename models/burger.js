@@ -15,7 +15,7 @@ const burger = {
   //Adds burger w/ given value and '  '
   add: (value, cb) => {
     orm.insertOne(value, data => {
-        cb(data)
+        cb(data);
       }
     );
   },
@@ -23,10 +23,10 @@ const burger = {
   //Updates burger w/ given id and ' '
   devour: (id, cb) => {
     orm.updateOne(id, data => {
-        cb(data)
+        cb(data);
       }
     );
   }
-}
+};
 
-module.exports(burger)
+module.exports(burger);
