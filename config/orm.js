@@ -1,7 +1,7 @@
 //Dependencies
 const connection = require('./connection');
 
-//Cb refers to callback parameter, passed through model (cat.js) from controller
+//Cb refers to callback parameter, passed through/determined in model (cat.js)
 const orm = {
   selectAll: (cb) => {
     //Select all burgers from table, return data or return 404 (db must not exist)/end connection
@@ -15,11 +15,11 @@ const orm = {
     });
   },
 
-  insertOne: (req, cb) => {
-    //Get burger name from request body, insert burger or return server error/end connection
+  insertOne: (burgName, cb) => {
+    //Insert burger or return server error/end connection
     const queryString = 'INSERT INTO burgers (burger_name) VALUES (?)';
 
-    connection.query(queryString, [req.body.bName], (err, data) => {
+    connection.query(queryString, [burgName], (err, data) => {
       if (err) {
         return res.status(500).end();
       };
@@ -28,11 +28,11 @@ const orm = {
     });
   },
 
-  updateOne: (req, cb) => {
-    //Change the devoured status of selected burger to true, or return server error/end connection
+  updateOne: (burgId, cb) => {
+    //Change selected burger's devoured to true, or return server error/end connection
     const queryString = 'UPDATE burgers SET devoured = 1 WHERE id = ?';
 
-    connection.query(queryString, [req.body.id], (err, data) => {
+    connection.query(queryString, [burgId], (err, data) => {
       if (err) {
         return res.status(500).end();
       };
