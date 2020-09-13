@@ -3,7 +3,7 @@ const express = require('express')
 const burger = require('../models/burger.js')
 
 //Defines express router object to simplify code for routes/requests
-const router = express.Router()
+const router = express.Router();
 
 //FNs below define routes and adds logic to handle data
 
@@ -34,5 +34,5 @@ router.put('/api/burg/:id', (req, res) => {
   });
 });
 
-module.export = router
+module.exports = router
 
