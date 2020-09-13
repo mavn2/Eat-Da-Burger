@@ -8,7 +8,7 @@ const burger = {
   getAll: (cb) => {
     orm.selectAll(data => {
         cb(data);
-        Console.log('Model!')
+        console.log('Model!')
       }
     );
   },
