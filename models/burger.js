@@ -32,4 +32,4 @@ const burger = {
   }
 };
 
-module.exports(burger);
+module.export(burger);
