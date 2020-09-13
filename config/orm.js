@@ -9,24 +9,20 @@ const orm = {
 
     connection.query(queryString, (err, data) => {
       if (err) {
-        return res.status(404).end();
+        throw err;
       };
       cb(data);
-      console.log('hi')
     });
   },
 
   insertOne: (value, cb) => {
     //Insert burger or return server error/end connection
-    const queryString = `INSERT INTO burgers (burger_name) VALUES ${value}`;
+    const queryString = `INSERT INTO burgers (burger_name) VALUES ('${value}')`;
 
     connection.query(queryString, (err, data) => {
       if (err) {
-        return res.status(500).end();
+        throw err;
       };
-      //Parse to display added burger?
-      cb(data);
-      console.log('hi')
     });
   },
 
@@ -36,7 +32,7 @@ const orm = {
 
     connection.query(queryString, (err, data) => {
       if (err) {
-        return res.status(500).end();
+        throw err;
       };
       //Parse to display devoured burger?
       cb(data);

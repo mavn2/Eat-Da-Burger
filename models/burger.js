@@ -8,7 +8,6 @@ const burger = {
   getAll: (cb) => {
     orm.selectAll(data => {
         cb(data);
-        console.log('Model!')
       }
     );
   },
@@ -17,7 +16,6 @@ const burger = {
   add: (burgName, cb) => {
     orm.insertOne(burgName, data => {
         cb(data);
-        console.log('Model!')
       }
     );
   },
