@@ -12,6 +12,7 @@ const orm = {
         return res.status(404).end();
       };
       cb(data);
+      console.log('hi')
     });
   },
 
@@ -23,8 +24,9 @@ const orm = {
       if (err) {
         return res.status(500).end();
       };
-      //Parse to display added burger
+      //Parse to display added burger?
       cb(data);
+      console.log('hi')
     });
   },
 
@@ -36,8 +38,9 @@ const orm = {
       if (err) {
         return res.status(500).end();
       };
-      //Parse to display devoured burger
+      //Parse to display devoured burger?
       cb(data);
+      console.log('hi')
     });
   }
 };

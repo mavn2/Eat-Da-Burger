@@ -8,22 +8,25 @@ const burger = {
   getAll: (cb) => {
     orm.selectAll(data => {
         cb(data);
+        Console.log('Model!')
       }
     );
   },
 
   //Adds burger w/ given value and '  '
-  add: (value, cb) => {
-    orm.insertOne(value, data => {
+  add: (burgName, cb) => {
+    orm.insertOne(burgName, data => {
         cb(data);
+        console.log('Model!')
       }
     );
   },
 
   //Updates burger w/ given id and ' '
-  devour: (id, cb) => {
-    orm.updateOne(id, data => {
+  devour: (burgId, cb) => {
+    orm.updateOne(burgId, data => {
         cb(data);
+        console.log('Model!')
       }
     );
   }
