@@ -4,7 +4,10 @@
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      <li>{{burger_name}}</li>
+      <li>
+        {{burger_name}}
+        <button class="devour" data-id={{id}}>Devour</button>
+      </li>
     {{/unless}}
   {{/each}}
 </ul>
