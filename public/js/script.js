@@ -1,7 +1,7 @@
 //Function applies event after DOM is loaded
 $(document).ready( () => {
   //Code for burger form/button
-  $('#submit_burg').on('click', () => {
+  $('#submit_burg').on('click', (event) => {
     event.preventDefault();
     //Get new burger from text input
     const burgerName = {value: $('#burger_in').val()}
@@ -13,5 +13,17 @@ $(document).ready( () => {
       //Reload page to display new burger
       location.reload()
     );
+  });
+
+  //Code for devour button
+  $('.devour').on('click', function(event) {
+    //Get burger id from button data attr
+    id = $(this).data('id')
+    //Send request to db
+    $.ajax('/api/burg/' + id, {
+      type: "PUT"
+    }).then(
+      location.reload()
+    )
   });
 });
