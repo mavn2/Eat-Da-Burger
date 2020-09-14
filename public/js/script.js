@@ -10,7 +10,8 @@ $(document).ready( () => {
       type: "POST",
       data: burgerName
     }).then(
+      //Reload page to display new burger
       location.reload()
-    )
-  })
-})
+    );
+  });
+});
