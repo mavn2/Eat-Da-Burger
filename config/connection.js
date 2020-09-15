@@ -1,19 +1,18 @@
 //Dependencies
-//Required modules
 const mysql = require('mysql');
-
-//Required files
-const password = require('./password');
+require('dotenv').config()
 
 //Sets connection parameters for hosted or local setting
 if (process.env.JAWSDB_URL) {
+  //Creates connection based on environmental variable
   connection = mysql.createConnection(process.env,JAWSDB_URL)
 } else {
+  //Creates connection
   const connection = mysql.createConnection({
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: password,
+  password: process.env.password,
   database: 'burgers_db'
 })};
 
