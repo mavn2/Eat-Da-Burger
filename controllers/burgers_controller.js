@@ -21,8 +21,8 @@ router.get('/', (req, res) => {
 router.post('/api/burg', (req, res) => {
   //Passes request body for burger name, 
   burger.add(req.body.value, data => {
-        //Confirms success, ends
-        res.status(200).end()
+      //Confirms success, ends
+      res.status(200).end();
   });
 });
 
@@ -30,7 +30,7 @@ router.put('/api/burg/:id', (req, res) => {
   //Passes id of burger to update
   burger.devour(req.params.id, data => {
     //Confirms success, ends
-    res.status(200).end()
+    res.status(200).end();
   });
 });
 

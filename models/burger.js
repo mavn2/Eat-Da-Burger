@@ -6,7 +6,7 @@ const orm = require('../config/orm.js');
 const burger = {
   //Gets burger data from table and executes function passed in controller
   getAll: (cb) => {
-    orm.selectAll(data => {
+    orm.selectAll('burgers', data => {
         cb(data);
       }
     );
@@ -14,7 +14,7 @@ const burger = {
 
   //Adds burger w/ given value and '  '
   add: (burgName, cb) => {
-    orm.insertOne(burgName, data => {
+    orm.insertOne('burgers', 'burger_name', burgName, data => {
         cb(data);
       }
     );
@@ -22,7 +22,7 @@ const burger = {
 
   //Updates burger w/ given id and ' '
   devour: (burgId, cb) => {
-    orm.updateOne(burgId, data => {
+    orm.updateOne('burgers', 'devoured', 1, Number(burgId), data => {
         cb(data);
         console.log('Model!')
       }

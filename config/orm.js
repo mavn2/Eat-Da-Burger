@@ -3,11 +3,11 @@ const connection = require('./connection');
 
 //Cb refers to callback parameter, passed through/determined in model (cat.js)
 const orm = {
-  selectAll: (cb) => {
+  selectAll: (table, cb) => {
     //Select all burgers from table, return data or return 404 (db must not exist)/end connection
-    const queryString = 'SELECT id, burger_name, devoured FROM burgers';
+    const queryString = 'SELECT * FROM ??';
 
-    connection.query(queryString, (err, data) => {
+    connection.query(queryString, [table], (err, data) => {
       if (err) {
         throw err;
       };
@@ -15,22 +15,22 @@ const orm = {
     });
   },
 
-  insertOne: (value, cb) => {
+  insertOne: (table, colToInsert, valToInsert, cb) => {
     //Insert burger or return server error/end connection
-    const queryString = `INSERT INTO burgers (burger_name) VALUES ('${value}')`;
+    const queryString = `INSERT INTO ?? (??) VALUES (?)`;
 
-    connection.query(queryString, (err, data) => {
+    connection.query(queryString, [table, colToInsert, valToInsert], (err, data) => {
       if (err) {
         throw err;
       };
     });
   },
 
-  updateOne: (condition, cb) => {
+  updateOne: (table, colUpdate, value, condition, cb) => {
     //Change selected burger's devoured to true, or return server error/end connection
-    const queryString = `UPDATE burgers SET devoured = 1 WHERE id = ${condition}`;
+    const queryString = 'UPDATE ?? SET ?? = ? WHERE id = ?';
 
-    connection.query(queryString, (err, data) => {
+    connection.query(queryString, [table, colUpdate, value, condition], (err, data) => {
       if (err) {
         throw err;
       };
