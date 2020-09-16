@@ -1,28 +1,40 @@
-<h1>Eat Da Burger</h1>
-
-<h2> Untouched </h2>
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      <li>
-        {{burger_name}}
-        <button type="button" class="devour" data-id="{{id}}">Devour</button>
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2> Devoured </h2>
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      <li>{{burger_name}}</li>
-    {{/if}}
-  {{/each}}
-</ul>
-
-<form>
-  <textarea placeholder="Enter a burger here!" id="burger_in" name="burger_in"rows="5" cols="50"></textarea>
-  
-  <button type="submit" id="submit_burg">submit</button>
-</form>
+<div class="container">
+  <h1 class="text-center">Eat Da Burger</h1>
+  <div class="row">
+    <div class="col">
+    <h2> Untouched </h2>
+      <ul class="list-group">
+        {{#each burgers}}
+          {{#unless devoured}}
+              <li class="row list-group-item">
+                <div class="col">
+                  {{burger_name}}
+                  <button type="button" class="devour" data-id="{{id}}">Devour</button>
+                </div>
+              </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col">
+      <h2> Devoured </h2>
+      <ul class="list-group">
+        {{#each burgers}}
+          {{#if devoured}}
+            <li class="list-group-item">{{burger_name}}</li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <form>
+      <div class="row">
+        <textarea placeholder="Enter a burger here!" id="burger_in" name="burger_in"rows="5" cols="50"></textarea>
+      </div>
+      <div class="row">
+        <button type="submit" id="submit_burg">submit</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -5,6 +5,11 @@ $(document).ready( () => {
     event.preventDefault();
     //Get new burger from text input
     const burgerName = {value: $('#burger_in').val()}
+    //Display error if text is empty
+    if($('#burger_in').val().replace(/ /g, '') === ''){
+      alert('Please enter a burger!');
+      return;
+    }
     //Send request to DB
     $.ajax('/api/burg', {
       type: "POST",
