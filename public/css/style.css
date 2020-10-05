@@ -1,3 +1,29 @@
+body {
+  background: olive;
+}
+
+.list-group{
+  max-height: 450px;
+  overflow: auto;
+}
+
+.list-group-item{
+  margin: .2em;
+  border-radius: inherit;
+}
+
+.devour{
+  float: right;
+}
 form {
-  color: blue;
+  margin: auto;
+  padding-top: 20px;
+}
+
+textarea{
+  margin-bottom: 10px;
+}
+
+#submit_burg {
+  margin: auto;
 }

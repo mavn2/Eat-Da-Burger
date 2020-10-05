@@ -8,8 +8,8 @@
           {{#unless devoured}}
               <li class="row list-group-item">
                 <div class="col">
-                  {{burger_name}}
-                  <button type="button" class="devour" data-id="{{id}}">Devour</button>
+                  <span class="align-text-top"> {{burger_name}} </span>
+                  <button type="button" class="btn btn-danger devour" data-id="{{id}}">Devour</button>
                 </div>
               </li>
           {{/unless}}
@@ -33,7 +33,7 @@
         <textarea placeholder="Enter a burger here!" id="burger_in" name="burger_in"rows="5" cols="50"></textarea>
       </div>
       <div class="row">
-        <button type="submit" id="submit_burg">submit</button>
+        <button type="submit" class="btn btn-primary" id="submit_burg">submit</button>
       </div>
     </form>
   </div>
