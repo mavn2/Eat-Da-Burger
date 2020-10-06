@@ -24,7 +24,6 @@ const burger = {
   devour: (burgId, cb) => {
     orm.updateOne('burgers', 'devoured', 1, Number(burgId), data => {
         cb(data);
-        console.log('Model!')
       }
     );
   }

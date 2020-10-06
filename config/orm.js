@@ -36,7 +36,6 @@ const orm = {
       };
       //Parse to display devoured burger?
       cb(data);
-      console.log('hi')
     });
   }
 };
